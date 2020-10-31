@@ -1,0 +1,21 @@
+{
+  "name": "Bad Bitcoin Addr",
+  "version": "0.1",
+  "description": "Detects when you've copied a bitcoin address from a HTTP page.",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": ["http://*/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js",
+      "isBitcoinAddr.js",
+      "3rdparty/bech32.js",
+      "3rdparty/micro-base58.js"
+    ],
+    "persistent": false
+  }
+}
