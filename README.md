@@ -7,6 +7,21 @@ Simple web extension to detect when you've copied a bitcoin address (or somethin
 - For Bech32, it uses the [reference implementation](https://github.com/sipa/bech3) to check if the copied text can be decoded. This is not perfect, for instance, `bc1rw5uspcuh` (from the [test vectors](https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki#test-vectors)) has an invalid program length but is still decodable and is detected by the extension.
 - For P2PKH and P2SH it is even cruder, it checks if the copied text is the right version (first byte is `1` for P2PKH and `3` for P2SH), can be base58 decoded (using [paulmillr/micro-base58](https://github.com/paulmillr/micro-base58)), and has the right length (25 bytes).
 
+## Building the extension
+
+### Firefox
+
+Use `web-ext` to build the sources as follows
+```
+cd src-ff
+web-ext build
+```
+and load the extension into Firefox.
+
+### Chrome
+
+Load the `src-chrome` directory into chrome.
+
 ## Thanks
 
 - [bjoern's StackOverflow answer from 2010](https://stackoverflow.com/a/2918684)
